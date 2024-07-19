@@ -1040,6 +1040,24 @@ def collect_training_data(image_path, training_shp_fn, subset_shp_fn=False,
 def main():
     '''
     Main function to read data, segment the image, extract training data, train the RF, and save the model.
+
+    Edit the following variables as needed for local machine file directory navigation:
+
+    image_paths: list - list of strings which point to NAIP image file paths on local machine
+
+    training_shapefile_paths: list - list of strings which point to shapefile paths that contain
+                                     ESRI shapefiles of point vector training data.
+    
+    grid_paths: list - list of strings which point to 500 m2 grid shapefiles for iterating over
+                       and subsetting NAIP imagery
+
+    city_names: list - list of strings denoting the cities which will be processed. These will
+                       also point the code to file paths for the output segmentation and 
+                       classified image filenames (see variable 'output_segments_path')
+
+    output_model_path: string - string which points to path of the output random forest model
+                                file to be saved
+
     '''
 
     start_time = time.time()

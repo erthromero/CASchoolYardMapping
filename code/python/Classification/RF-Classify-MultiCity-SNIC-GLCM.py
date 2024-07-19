@@ -730,7 +730,7 @@ def applyClassifier(image_path: str, modelPath: str,
     RFModel = joblib.load(modelPath)
 
     # NOTE (Eric): SNIC parameters
-    numSegments = 20000
+    numSegments = 12000
     compactness = 0.001 #Very little compactness gives our segments great felixbility in their shape
 
     if not isfile(subsetShapefile):
@@ -973,13 +973,29 @@ def applyClassifier(image_path: str, modelPath: str,
             
             out_ds.FlushCache()
             out_ds = None
-            break
+            
             
         
 
 def main():
     '''
     Main function to read data, segment the image, and run the model classification.
+
+    Edit the following variables as needed for local machine file directory navigation:
+
+    image_paths: list - list of strings which point to NAIP image file paths on local machine
+    
+    grid_paths: list - list of strings which point to 500 m2 grid shapefiles for iterating over
+                       and subsetting NAIP imagery
+
+    city_names: list - list of strings denoting the cities which will be processed. These will
+                       also point the code to file paths for the output segmentation and 
+                       classified image filenames (see variables 'outClassFilename' and 
+                       'output_segments_path')
+
+    model_path: string - path to saved random forest model on local machine
+
+
     '''
 
     start_time = time.time()
@@ -1009,7 +1025,7 @@ def main():
         
         #NOTE (Eric): Define output file names and paths for the classification and its segmentation
         outClassFilename = f"E:\\SummerGSR2024\\ImClassification\\{city_name}\\RandomForest\\{city_name}ElemntarySchoolClassification"
-        output_segments_path = f"E:\\SummerGSR2024\\ImSegmentation\\{city_name}\\RandomForest\\Classification\\{city_name}ClassSegments"
+        output_segments_path = f"E:\\SummerGSR2024\\ImSegmentation\\{city_name}\\Classification\\RandomForest\\{city_name}ClassSegments"
 
         #NOTE (Eric): Book keeping on which image we're processing
         print(f'\nProcessing: {city_name}\nImage file: {image_path}')

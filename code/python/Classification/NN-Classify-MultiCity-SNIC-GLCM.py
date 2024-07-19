@@ -997,6 +997,18 @@ def applyClassifier(image_path: str, modelPath: str,
 def main():
     '''
     Main function to read data, segment the image, and run the model classification.
+
+    image_paths: list - list of strings which point to NAIP image file paths on local machine
+    
+    grid_paths: list - list of strings which point to 500 m2 grid shapefiles for iterating over
+                       and subsetting NAIP imagery
+
+    city_names: list - list of strings denoting the cities which will be processed. These will
+                       also point the code to file paths for the output segmentation and 
+                       classified image filenames (see variables 'outClassFilename' and 
+                       'output_segments_path')
+
+    model_path: string - path to saved neural network model on local machine
     '''
 
     start_time = time.time()
