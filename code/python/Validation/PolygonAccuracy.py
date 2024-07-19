@@ -17,8 +17,11 @@ def PolygonAccuracy(confusion_mat_path: str, polygon_rast: str, class_rast: str,
     Geospatial extents and reference of polygon and class rasters must match, as well as classification schemas.
 
     confusion_mat_path: str - path to  output confusion matrix
+    
     polygon_rast: path to rasterized validation polygons
+    
     class_rast: path to classified raster
+    
     im_res: float - image resolution in meters
 
     """""
