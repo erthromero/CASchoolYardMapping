@@ -114,4 +114,16 @@ Step 4: Validation
         - Once the code has run, you will have a confusion matrix .csv file which can be 
           used to calculate additional accuracy statistics. A nice tutorial for accuracy metric calculations can be found here: https://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/accuracy/metrics.html
 
+Step 5 (Optional): Merging classification results with Open Street Map open-source data
+
+        - Navigate to code/python/MergeWithOSM
+        - Run MergClassificationOSM.py (see code comments for instructions)
+        - Run CleanUpMergedData.py (see code comments for instructions)
+
+Step 6 (Optional): Calculate land cover statistics and compare with other land cover data
+
+        - Navigate to code/python/SchoolYardStats-EarthDefineComparison
+        - For statistics regarding individual school yards run CollectSchoolYardStats.py (see code comments for instructions)
+        - For statistics regarding all school yards across entire cities run CollectCitySchoolYardStats.py (see code comments for instructions)
+        - To compare these results with EarthDefine land cover assessments run EarthDefineConfusionMatrixAndCoverStats.py (see code comments for instructions)
 
